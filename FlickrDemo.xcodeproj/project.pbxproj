@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FFC873F41F6454580025042D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC873F31F6454580025042D /* AppDelegate.swift */; };
-		FFC873F61F6454580025042D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC873F51F6454580025042D /* ViewController.swift */; };
-		FFC873F91F6454580025042D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC873F71F6454580025042D /* Main.storyboard */; };
+		FFC873F61F6454580025042D /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC873F51F6454580025042D /* ImagesViewController.swift */; };
+		FFC873F91F6454580025042D /* Images.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC873F71F6454580025042D /* Images.storyboard */; };
 		FFC873FB1F6454580025042D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFC873FA1F6454580025042D /* Assets.xcassets */; };
 		FFC873FE1F6454580025042D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC873FC1F6454580025042D /* LaunchScreen.storyboard */; };
 		FFC874091F6454580025042D /* FlickrDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC874081F6454580025042D /* FlickrDemoTests.swift */; };
@@ -28,8 +28,8 @@
 /* Begin PBXFileReference section */
 		FFC873F01F6454580025042D /* FlickrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC873F31F6454580025042D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FFC873F51F6454580025042D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FFC873F81F6454580025042D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FFC873F51F6454580025042D /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
+		FFC873F81F6454580025042D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Images.storyboard; sourceTree = "<group>"; };
 		FFC873FA1F6454580025042D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFC873FD1F6454580025042D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFC873FF1F6454580025042D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,10 +77,9 @@
 		FFC873F21F6454580025042D /* FlickrDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FFC874151F64568D0025042D /* ImagesViewController */,
 				FFC874141F6455F90025042D /* Resources */,
 				FFC874131F6455E00025042D /* App */,
-				FFC873F51F6454580025042D /* ViewController.swift */,
-				FFC873F71F6454580025042D /* Main.storyboard */,
 			);
 			path = FlickrDemo;
 			sourceTree = "<group>";
@@ -110,6 +109,15 @@
 				FFC873FA1F6454580025042D /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		FFC874151F64568D0025042D /* ImagesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FFC873F51F6454580025042D /* ImagesViewController.swift */,
+				FFC873F71F6454580025042D /* Images.storyboard */,
+			);
+			path = ImagesViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +205,7 @@
 			files = (
 				FFC873FE1F6454580025042D /* LaunchScreen.storyboard in Resources */,
 				FFC873FB1F6454580025042D /* Assets.xcassets in Resources */,
-				FFC873F91F6454580025042D /* Main.storyboard in Resources */,
+				FFC873F91F6454580025042D /* Images.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFC873F61F6454580025042D /* ViewController.swift in Sources */,
+				FFC873F61F6454580025042D /* ImagesViewController.swift in Sources */,
 				FFC873F41F6454580025042D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,12 +247,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FFC873F71F6454580025042D /* Main.storyboard */ = {
+		FFC873F71F6454580025042D /* Images.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FFC873F81F6454580025042D /* Base */,
 			);
-			name = Main.storyboard;
+			name = Images.storyboard;
 			sourceTree = "<group>";
 		};
 		FFC873FC1F6454580025042D /* LaunchScreen.storyboard */ = {
