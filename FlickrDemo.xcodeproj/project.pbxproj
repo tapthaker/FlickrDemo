@@ -77,12 +77,10 @@
 		FFC873F21F6454580025042D /* FlickrDemo */ = {
 			isa = PBXGroup;
 			children = (
-				FFC873F31F6454580025042D /* AppDelegate.swift */,
+				FFC874141F6455F90025042D /* Resources */,
+				FFC874131F6455E00025042D /* App */,
 				FFC873F51F6454580025042D /* ViewController.swift */,
 				FFC873F71F6454580025042D /* Main.storyboard */,
-				FFC873FA1F6454580025042D /* Assets.xcassets */,
-				FFC873FC1F6454580025042D /* LaunchScreen.storyboard */,
-				FFC873FF1F6454580025042D /* Info.plist */,
 			);
 			path = FlickrDemo;
 			sourceTree = "<group>";
@@ -94,6 +92,24 @@
 				FFC8740A1F6454580025042D /* Info.plist */,
 			);
 			path = FlickrDemoTests;
+			sourceTree = "<group>";
+		};
+		FFC874131F6455E00025042D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FFC873FF1F6454580025042D /* Info.plist */,
+				FFC873F31F6454580025042D /* AppDelegate.swift */,
+				FFC873FC1F6454580025042D /* LaunchScreen.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FFC874141F6455F90025042D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FFC873FA1F6454580025042D /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,7 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FlickrDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FlickrDemo/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tapthaker.FlickrDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -368,7 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FlickrDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FlickrDemo/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tapthaker.FlickrDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
