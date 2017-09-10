@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="639-DI-LxV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,49 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="GcR-iD-Lk9">
+            <objects>
+                <viewController id="4S4-4g-Kyb" customClass="SearchViewController" customModule="FlickrDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="99R-sf-zFq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="VQJ-CU-sui">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ptB-tR-8yg">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VQJ-CU-sui" firstAttribute="trailing" secondItem="hOL-QI-ba3" secondAttribute="trailing" id="6No-Ka-Aq0"/>
+                            <constraint firstItem="hOL-QI-ba3" firstAttribute="bottom" secondItem="ptB-tR-8yg" secondAttribute="bottom" id="7Jb-rb-RMr"/>
+                            <constraint firstItem="VQJ-CU-sui" firstAttribute="leading" secondItem="hOL-QI-ba3" secondAttribute="leading" id="IrB-X7-HlL"/>
+                            <constraint firstItem="hOL-QI-ba3" firstAttribute="trailing" secondItem="ptB-tR-8yg" secondAttribute="trailing" id="MIk-ti-gtK"/>
+                            <constraint firstItem="ptB-tR-8yg" firstAttribute="top" secondItem="VQJ-CU-sui" secondAttribute="bottom" id="giT-0f-dyf"/>
+                            <constraint firstItem="ptB-tR-8yg" firstAttribute="leading" secondItem="hOL-QI-ba3" secondAttribute="leading" id="ktm-RB-7xz"/>
+                            <constraint firstItem="VQJ-CU-sui" firstAttribute="top" secondItem="hOL-QI-ba3" secondAttribute="top" id="tQP-4F-CTa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hOL-QI-ba3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dPR-d5-jLY"/>
+                    <connections>
+                        <outlet property="searchBar" destination="VQJ-CU-sui" id="DuM-fe-Rts"/>
+                        <outlet property="tableView" destination="ptB-tR-8yg" id="m1a-Ae-QFv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofi-q6-nOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-360.80000000000001" y="132.68365817091455"/>
+        </scene>
         <!--Images View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ImagesViewController" customModule="FlickrDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageViewController" id="BYZ-38-t0r" customClass="ImagesViewController" customModule="FlickrDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +105,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+            <point key="canvasLocation" x="476" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qe6-eT-gk0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="639-DI-LxV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pFs-QN-W0t">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4S4-4g-Kyb" kind="relationship" relationship="rootViewController" id="pCx-Tl-xtT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CHP-sk-vFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1087" y="133"/>
         </scene>
     </scenes>
 </document>

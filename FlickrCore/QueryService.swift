@@ -22,7 +22,6 @@ public class QueryService {
                   apiClient: apiClient)
     }
 
-
     init(query: String, apiClient: APIClient) {
         self.query = query
         self.apiClient = apiClient

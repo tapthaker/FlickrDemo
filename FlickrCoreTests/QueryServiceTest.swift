@@ -4,14 +4,14 @@ import XCTest
 class QueryServiceTest: XCTestCase {
 
     var queryService: QueryService!
-    
+
     override func setUp() {
         super.setUp()
         let sessionConfiguration = URLSessionConfiguration.default
         let apiClient = APIClient(sessionConfiguration: sessionConfiguration)
         queryService = QueryService(query: "Husky", apiClient: apiClient)
     }
-    
+
     func testSearchImages() {
         let expectation = self.expectation(description: "Flickr API call")
         queryService.nextImages(onSuccess: { (response) in

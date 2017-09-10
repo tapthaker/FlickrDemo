@@ -53,7 +53,7 @@ class  APIClient {
         })
 
         dataTask.resume()
-        
+
         return dataTask
     }
 
@@ -98,7 +98,7 @@ extension Data {
 
 extension URL {
     func appendingGETParams(params: [String: String]) -> URL {
-        let getParamsString = params.map { (key,value) -> String? in
+        let getParamsString = params.map { (key, value) -> String? in
             return value.urlEncoded.map({ "\(key)=\($0)" })
 
             }.flatMap({$0})
@@ -116,4 +116,3 @@ extension String {
         }
     }
 }
-
