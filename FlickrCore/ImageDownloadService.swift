@@ -31,24 +31,24 @@ class ImageDownloadService {
             return
         }
 
+        let successBlock = { [weak self] (url: URL) in
+            if let image = UIImage(fileLocation: url) {
+                let cost = Int(image.size.height) * Int(image.size.width)
+                self?.cache.setObject(image,
+                                      forKey: uniqueKey as NSString,
+                                      cost: cost)
+                onCompletion(image)
+            } else {
+                onFailure(APIError.DownloadFailed)
+            }
+            self?.downloadTasks.removeValue(forKey: uniqueKey)
+        }
+
         let urlSessonDownloadTask = apiClient.download(url: url,
                                                        finalLocation: finalLocation,
                                                        fileManager: fileManager,
-                                                       onSuccess: { [weak self] (url) in
-                                                        if let image = UIImage(fileLocation: url) {
-                                                            let cost = Int(image.size.height) * Int(image.size.width)
-                                                            self?.cache.setObject(image,
-                                                                                  forKey: uniqueKey as NSString,
-                                                                                  cost: cost)
-                                                            onCompletion(image)
-                                                        } else {
-                                                            onFailure(APIError.DownloadFailed)
-                                                        }
-                                                        self?.downloadTasks.removeValue(forKey: uniqueKey)
-
-        }) { (error) in
-            onFailure(error)
-        }
+                                                       onSuccess: successBlock,
+                                                       onFailure: onFailure)
         downloadTasks[uniqueKey] = urlSessonDownloadTask
     }
 

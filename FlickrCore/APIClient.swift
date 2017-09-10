@@ -9,6 +9,12 @@ public enum APIError: Error {
     case DownloadFailed
 }
 
+func notifyOnMainThread(_ execute: @escaping @autoclosure () -> Void) {
+    DispatchQueue.main.async {
+        execute()
+    }
+}
+
 class  APIClient {
     private let session: URLSession
 
@@ -18,27 +24,30 @@ class  APIClient {
 
     func executeGET<T: Decodable>(url: URL,
                                   params: [String: String],
-                                  onSuccess: @escaping (T?) -> Void,
+                                  onSuccess: @escaping (T) -> Void,
                                   onFailure: @escaping OnFailure) -> URLSessionTask {
         let urlRequest = createGETRequest(url: url, params: params)
 
         let dataTask = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
 
             if let apiError = error {
-                onFailure(APIError.Foundation(apiError))
+                notifyOnMainThread(onFailure(APIError.Foundation(apiError)))
                 return
             }
 
             guard response != nil else {
-                onFailure(APIError.Unknown)
+                notifyOnMainThread(onFailure(APIError.Unknown))
                 return
             }
 
             do {
-                let parsedObject = try data?.decode(type: T.self)
-                onSuccess(parsedObject)
+                if let parsedObject = try data?.decode(type: T.self) {
+                    notifyOnMainThread(onSuccess(parsedObject))
+                } else {
+                    notifyOnMainThread(onFailure(APIError.Unknown))
+                }
             } catch {
-                onFailure(APIError.Parsing)
+                notifyOnMainThread(onFailure(APIError.Parsing))
             }
 
         })
@@ -56,14 +65,14 @@ class  APIClient {
         let downloadTask = session.downloadTask(with: url, completionHandler: { (location, response, error) in
 
             guard let tempFileLocation = location else {
-                onFailure(APIError.DownloadFailed)
+                notifyOnMainThread(onFailure(APIError.DownloadFailed))
                 return
             }
             do {
                 try fileManager.moveItem(at: tempFileLocation, to: finalLocation)
-                onSuccess(finalLocation)
+                notifyOnMainThread(onSuccess(finalLocation))
             } catch {
-                onFailure(APIError.DownloadFailed)
+                notifyOnMainThread(onFailure(APIError.DownloadFailed))
             }
         })
 

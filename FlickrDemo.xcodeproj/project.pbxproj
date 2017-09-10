@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FF371C531F65110000A47F29 /* ImageDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF371C521F65110000A47F29 /* ImageDownloadService.swift */; };
-		FF371C551F651EAB00A47F29 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF371C541F651EAB00A47F29 /* Models.swift */; };
+		FF371C551F651EAB00A47F29 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF371C541F651EAB00A47F29 /* Photos.swift */; };
 		FF371C571F65234E00A47F29 /* ImageDownloadServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF371C561F65234E00A47F29 /* ImageDownloadServiceTest.swift */; };
+		FF371C591F652BBB00A47F29 /* CollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF371C581F652BBB00A47F29 /* CollectionViewDatasource.swift */; };
 		FFC873F41F6454580025042D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC873F31F6454580025042D /* AppDelegate.swift */; };
 		FFC873F61F6454580025042D /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC873F51F6454580025042D /* ImagesViewController.swift */; };
 		FFC873F91F6454580025042D /* Images.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC873F71F6454580025042D /* Images.storyboard */; };
@@ -65,8 +66,9 @@
 
 /* Begin PBXFileReference section */
 		FF371C521F65110000A47F29 /* ImageDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadService.swift; sourceTree = "<group>"; };
-		FF371C541F651EAB00A47F29 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		FF371C541F651EAB00A47F29 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		FF371C561F65234E00A47F29 /* ImageDownloadServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceTest.swift; sourceTree = "<group>"; };
+		FF371C581F652BBB00A47F29 /* CollectionViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDatasource.swift; sourceTree = "<group>"; };
 		FFC873F01F6454580025042D /* FlickrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC873F31F6454580025042D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFC873F51F6454580025042D /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				FFC873F51F6454580025042D /* ImagesViewController.swift */,
 				FFC873F71F6454580025042D /* Images.storyboard */,
+				FF371C581F652BBB00A47F29 /* CollectionViewDatasource.swift */,
 			);
 			path = ImagesViewController;
 			sourceTree = "<group>";
@@ -193,11 +196,11 @@
 			isa = PBXGroup;
 			children = (
 				FFC874491F645AC30025042D /* FlickrCore.h */,
-				FFC8744A1F645AC30025042D /* Info.plist */,
 				FFC874651F645AF10025042D /* QueryService.swift */,
 				FFC874671F6463C80025042D /* APIClient.swift */,
 				FF371C521F65110000A47F29 /* ImageDownloadService.swift */,
-				FF371C541F651EAB00A47F29 /* Models.swift */,
+				FF371C541F651EAB00A47F29 /* Photos.swift */,
+				FFC8744A1F645AC30025042D /* Info.plist */,
 			);
 			path = FlickrCore;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			files = (
 				FFC873F61F6454580025042D /* ImagesViewController.swift in Sources */,
 				FFC873F41F6454580025042D /* AppDelegate.swift in Sources */,
+				FF371C591F652BBB00A47F29 /* CollectionViewDatasource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +413,7 @@
 				FFC874661F645AF10025042D /* QueryService.swift in Sources */,
 				FF371C531F65110000A47F29 /* ImageDownloadService.swift in Sources */,
 				FFC874681F6463C80025042D /* APIClient.swift in Sources */,
-				FF371C551F651EAB00A47F29 /* Models.swift in Sources */,
+				FF371C551F651EAB00A47F29 /* Photos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
