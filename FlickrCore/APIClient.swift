@@ -6,6 +6,7 @@ public enum APIError: Error {
     case Unknown
     case Foundation(Error)
     case Parsing
+    case DownloadFailed
 }
 
 class  APIClient {
@@ -16,9 +17,9 @@ class  APIClient {
     }
 
     func executeGET<T: Decodable>(url: URL,
-                    params: [String: String],
-                    onSuccess: @escaping (T?) -> Void,
-                    onFailure: @escaping OnFailure) -> URLSessionTask {
+                                  params: [String: String],
+                                  onSuccess: @escaping (T?) -> Void,
+                                  onFailure: @escaping OnFailure) -> URLSessionTask {
         let urlRequest = createGETRequest(url: url, params: params)
 
         let dataTask = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
@@ -45,6 +46,30 @@ class  APIClient {
         dataTask.resume()
         
         return dataTask
+    }
+
+    func download(url: URL,
+                  finalLocation: URL,
+                  fileManager: FileManager,
+                  onSuccess: @escaping (URL) -> Void,
+                  onFailure: @escaping OnFailure) -> URLSessionDownloadTask {
+        let downloadTask = session.downloadTask(with: url, completionHandler: { (location, response, error) in
+
+            guard let tempFileLocation = location else {
+                onFailure(APIError.DownloadFailed)
+                return
+            }
+            do {
+                try fileManager.moveItem(at: tempFileLocation, to: finalLocation)
+                onSuccess(finalLocation)
+            } catch {
+                onFailure(APIError.DownloadFailed)
+            }
+        })
+
+        downloadTask.resume()
+
+        return downloadTask
     }
 
     private func createGETRequest(url: URL, params: [String: String]) -> URLRequest {

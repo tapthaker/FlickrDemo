@@ -1,15 +1,7 @@
-//
-//  FlickrCoreTests.swift
-//  FlickrCoreTests
-//
-//  Created by Tapan Thaker on 09/09/17.
-//  Copyright © 2017 tapthaker. All rights reserved.
-//
-
 import XCTest
 @testable import FlickrCore
 
-class FlickrCoreTests: XCTestCase {
+class QueryServiceTest: XCTestCase {
 
     var queryService: QueryService!
     

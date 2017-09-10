@@ -1,23 +1,6 @@
 import Foundation
 
 class QueryService {
-
-    struct Photo: Decodable {
-        let farm: Int
-        let server: String
-        let id: String
-        let secret: String
-    }
-
-    struct Photos: Decodable {
-        let page: Int
-        let pages: Int
-        let photo: [Photo]
-    }
-
-    struct ImageSearchResponse: Decodable {
-        let photos: Photos
-    }
     
     private static let apiKey = ""
     private let url = URL(string: "https://api.flickr.com/services/rest/")!
